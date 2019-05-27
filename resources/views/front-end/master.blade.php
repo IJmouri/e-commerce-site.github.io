@@ -1,316 +1,352 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!--
+Au<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
-    <!-- Title  -->
     <title>@yield('title')</title>
-
-    <!-- Favicon  -->
-    <link rel="icon" href="{{asset('/')}}/front-end/img/core-img/favicon.ico">
-
-    <!-- Core Style CSS -->
-    <link rel="stylesheet" href="{{asset('/')}}/front-end/css/core-style.css">
-    <link rel="stylesheet" href="{{asset('/')}}/front-end/style.css">
-
+    <!--css-->
+    <link href="{{ asset('/') }}/front-end/css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="{{ asset('/') }}/front-end/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="{{ asset('/') }}/front-end/css/font-awesome.css" rel="stylesheet">
+    <!--css-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="New Shop Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <script src="{{ asset('/') }}/front-end/js/jquery.min.js"></script>
+    <link href='//fonts.googleapis.com/css?family=Cagliostro' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,800italic,800,700italic,700,600italic,600,400italic,300italic,300' rel='stylesheet' type='text/css'>
+    <!--search jQuery-->
+    <script src="{{ asset('/') }}/front-end/js/main.js"></script>
+    <!--search jQuery-->
+    <script src="{{ asset('/') }}/front-end/js/responsiveslides.min.js"></script>
+    <script>
+        $(function () {
+            $("#slider").responsiveSlides({
+                auto: true,
+                nav: true,
+                speed: 500,
+                namespace: "callbacks",
+                pager: true,
+            });
+        });
+    </script>
+    <!--mycart-->
+    <script type="text/javascript" src="{{ asset('/') }}/front-end/js/bootstrap-3.1.1.min.js"></script>
+    <!-- cart -->
+    <script src="{{ asset('/') }}/front-end/js/simpleCart.min.js"></script>
+    <!-- cart -->
+    <!--start-rate-->
+    <script src="{{ asset('/') }}/front-end/js/jstarbox.js"></script>
+    <link rel="stylesheet" href="{{ asset('/') }}/front-end/css/jstarbox.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript">
+        jQuery(function() {
+            jQuery('.starbox').each(function() {
+                var starbox = jQuery(this);
+                starbox.starbox({
+                    average: starbox.attr('data-start-value'),
+                    changeable: starbox.hasClass('unchangeable') ? false : starbox.hasClass('clickonce') ? 'once' : true,
+                    ghosting: starbox.hasClass('ghosting'),
+                    autoUpdateAverage: starbox.hasClass('autoupdate'),
+                    buttons: starbox.hasClass('smooth') ? false : starbox.attr('data-button-count') || 5,
+                    stars: starbox.attr('data-star-count') || 5
+                }).bind('starbox-value-changed', function(event, value) {
+                    if(starbox.hasClass('random')) {
+                        var val = Math.random();
+                        starbox.next().text(' '+val);
+                        return val;
+                    }
+                })
+            });
+        });
+    </script>
+    <!--//End-rate-->
 </head>
-
 <body>
-    <!-- Search Wrapper Area Start -->
-    <div class="search-wrapper section-padding-100">
-        <div class="search-close">
-            <i class="fa fa-close" aria-hidden="true"></i>
+<!--header-->
+@include('front-end.includes.header');
+<!--header-->
+<!--banner-->
+    @yield('body')
+<!--content-->
+<!---footer--->
+@include('front-end.includes.footer');
+<!---footer--->
+<!--copy-->
+<div class="copy-section">
+    <div class="container">
+        <div class="copy-left">
+            <p>&copy; 2016 New Shop . All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="search-content">
-                        <form action="#" method="get">
-                            <input type="search" name="search" id="search" placeholder="Type your keyword...">
-                            <button type="submit"><img src="img/core-img/search.png" alt=""></button>
-                        </form>
-                    </div>
-                </div>
-            </div>
+        <div class="copy-right">
+            <img src="{{ asset('/') }}/front-end/images/card.png" alt=""/>
         </div>
+        <div class="clearfix"></div>
     </div>
-    <!-- Search Wrapper Area End -->
-
-    <!-- ##### Main Content Wrapper Start ##### -->
-    <div class="main-content-wrapper d-flex clearfix">
-
-        <!-- Mobile Nav (max width 767px)-->
-        <div class="mobile-nav">
-            <!-- Navbar Brand -->
-            <div class="amado-navbar-brand">
-                <a href="index.html"><img src="img/core-img/logo.png" alt=""></a>
+</div>
+<!--copy-->
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content modal-info">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
-            <!-- Navbar Toggler -->
-            <div class="amado-navbar-toggler">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
-
-        <!-- Header Area Start -->
-        <header class="header-area clearfix">
-            <!-- Close Icon -->
-            <div class="nav-close">
-                <i class="fa fa-close" aria-hidden="true"></i>
-            </div>
-            <!-- Logo -->
-            <div class="logo">
-                <a href="index.html"><img src="img/core-img/logo.png" alt=""></a>
-            </div>
-            <!-- Amado Nav -->
-            <nav class="amado-nav">
-                <ul>
-                    <li class="active"><a href="index.html">Home</a></li>
-                    <li><a href="shop.html">Shop</a></li>
-                    <li><a href="product-details.html">Product</a></li>
-                    <li><a href="cart.html">Cart</a></li>
-                    <li><a href="checkout.html">Checkout</a></li>
-                </ul>
-            </nav>
-            <!-- Button Group -->
-            <div class="amado-btn-group mt-30 mb-100">
-                <a href="#" class="btn amado-btn mb-15">%Discount%</a>
-                <a href="#" class="btn amado-btn active">New this week</a>
-            </div>
-            <!-- Cart Menu -->
-            <div class="cart-fav-search mb-100">
-                <a href="cart.html" class="cart-nav"><img src="img/core-img/cart.png" alt=""> Cart <span>(0)</span></a>
-                <a href="#" class="fav-nav"><img src="img/core-img/favorites.png" alt=""> Favourite</a>
-                <a href="#" class="search-nav"><img src="img/core-img/search.png" alt=""> Search</a>
-            </div>
-            <!-- Social Button -->
-            <div class="social-info d-flex justify-content-between">
-                <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-            </div>
-        </header>
-        <!-- Header Area End -->
-
-        <!-- Product Catagories Area Start -->
-        <div class="products-catagories-area clearfix">
-            <div class="amado-pro-catagory clearfix">
-
-                <!-- Single Catagory -->
-                <div class="single-products-catagory clearfix">
-                    <a href="shop.html">
-                        <img src="{{ asset('/')}}/front-end/img/bg-img/1.jpg" alt="">
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <div class="line"></div>
-                            <p>From $180</p>
-                            <h4>Modern Chair</h4>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Single Catagory -->
-                <div class="single-products-catagory clearfix">
-                    <a href="shop.html">
-                        <img src="{{ asset('/')}}/front-end/img/bg-img/2.jpg" alt="">
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <div class="line"></div>
-                            <p>From $180</p>
-                            <h4>Minimalistic Plant Pot</h4>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Single Catagory -->
-                <div class="single-products-catagory clearfix">
-                    <a href="{{route('category-product')}}">
-                        <img src="{{ asset('/')}}/front-end/img/bg-img/3.jpg" alt="">
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <div class="line"></div>
-                            <p>From $180</p>
-                            <h4>Modern Chair</h4>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Single Catagory -->
-                <div class="single-products-catagory clearfix">
-                    <a href="shop.html">
-                        <img src="{{ asset('/')}}/front-end/img/bg-img/4.jpg" alt="">
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <div class="line"></div>
-                            <p>From $180</p>
-                            <h4>Night Stand</h4>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Single Catagory -->
-                <div class="single-products-catagory clearfix">
-                    <a href="shop.html">
-                        <img src="{{ asset('/')}}/front-end/img/bg-img/5.jpg" alt="">
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <div class="line"></div>
-                            <p>From $18</p>
-                            <h4>Plant Pot</h4>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Single Catagory -->
-                <div class="single-products-catagory clearfix">
-                    <a href="shop.html">
-                        <img src="{{ asset('/')}}/front-end/img/bg-img/6.jpg" alt="">
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <div class="line"></div>
-                            <p>From $320</p>
-                            <h4>Small Table</h4>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Single Catagory -->
-                <div class="single-products-catagory clearfix">
-                    <a href="shop.html">
-                        <img src="{{ asset('/')}}/front-end/img/bg-img/7.jpg" alt="">
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <div class="line"></div>
-                            <p>From $318</p>
-                            <h4>Metallic Chair</h4>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Single Catagory -->
-                <div class="single-products-catagory clearfix">
-                    <a href="shop.html">
-                        <img src="{{ asset('/')}}/front-end/img/bg-img/8.jpg" alt="">
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <div class="line"></div>
-                            <p>From $318</p>
-                            <h4>Modern Rocking Chair</h4>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Single Catagory -->
-                <div class="single-products-catagory clearfix">
-                    <a href="shop.html">
-                        <img src="{{ asset('/')}}/front-end/img/bg-img/9.jpg" alt="">
-                        <!-- Hover Content -->
-                        <div class="hover-content">
-                            <div class="line"></div>
-                            <p>From $318</p>
-                            <h4>Home Deco</h4>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <!-- Product Catagories Area End -->
-    </div>
-    <!-- ##### Main Content Wrapper End ##### -->
-
-    <!-- ##### Newsletter Area Start ##### -->
-    <section class="newsletter-area section-padding-100-0">
-        <div class="container">
-            <div class="row align-items-center">
-                <!-- Newsletter Text -->
-                <div class="col-12 col-lg-6 col-xl-7">
-                    <div class="newsletter-text mb-100">
-                        <h2>Subscribe for a <span>25% Discount</span></h2>
-                        <p>Nulla ac convallis lorem, eget euismod nisl. Donec in libero sit amet mi vulputate consectetur. Donec auctor interdum purus, ac finibus massa bibendum nec.</p>
+            <div class="modal-body">
+                <div class="news-gr">
+                    <div class="col-md-5 new-grid1">
+                        <img src="{{ asset('/') }}/front-end/images/p5.jpg" class="img-responsive" alt="">
                     </div>
-                </div>
-                <!-- Newsletter Form -->
-                <div class="col-12 col-lg-6 col-xl-5">
-                    <div class="newsletter-form mb-100">
-                        <form action="#" method="post">
-                            <input type="email" name="email" class="nl-email" placeholder="Your E-mail">
-                            <input type="submit" value="Subscribe">
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ##### Newsletter Area End ##### -->
-
-    <!-- ##### Footer Area Start ##### -->
-    <footer class="footer_area clearfix">
-        <div class="container">
-            <div class="row align-items-center">
-                <!-- Single Widget Area -->
-                <div class="col-12 col-lg-4">
-                    <div class="single_widget_area">
-                        <!-- Logo -->
-                        <div class="footer-logo mr-50">
-                            <a href="index.html"><img src="img/core-img/logo2.png" alt=""></a>
-                        </div>
-                        <!-- Copywrite Text -->
-                        <p class="copywrite"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                    </div>
-                </div>
-                <!-- Single Widget Area -->
-                <div class="col-12 col-lg-8">
-                    <div class="single_widget_area">
-                        <!-- Footer Menu -->
-                        <div class="footer_menu">
-                            <nav class="navbar navbar-expand-lg justify-content-end">
-                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#footerNavContent" aria-controls="footerNavContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
-                                <div class="collapse navbar-collapse" id="footerNavContent">
-                                    <ul class="navbar-nav ml-auto">
-                                        <li class="nav-item active">
-                                            <a class="nav-link" href="index.html">Home</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="shop.html">Shop</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="product-details.html">Product</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="cart.html">Cart</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="checkout.html">Checkout</a>
-                                        </li>
-                                    </ul>
+                    <div class="col-md-7 new-grid">
+                        <h5>Ten Women's Cotton Viscose fabric Grey Shrug</h5>
+                        <h6>Quick Overview</h6>
+                        <span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+                        <div class="color-quality">
+                            <div class="color-quality-left">
+                                <h6>Color : </h6>
+                                <ul>
+                                    <li><a href="#"><span></span>Red</a></li>
+                                    <li><a href="#" class="brown"><span></span>Yellow</a></li>
+                                    <li><a href="#" class="purple"><span></span>Purple</a></li>
+                                    <li><a href="#" class="gray"><span></span>Violet</a></li>
+                                </ul>
+                            </div>
+                            <div class="color-quality-right">
+                                <h6>Quality :</h6>
+                                <div class="quantity">
+                                    <div class="quantity-select">
+                                        <div class="entry value-minus1">&nbsp;</div>
+                                        <div class="entry value1"><span>1</span></div>
+                                        <div class="entry value-plus1 active">&nbsp;</div>
+                                    </div>
                                 </div>
-                            </nav>
+                                <!--quantity-->
+                                <script>
+                                    $('.value-plus1').on('click', function(){
+                                        var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10)+1;
+                                        divUpd.text(newVal);
+                                    });
+
+                                    $('.value-minus1').on('click', function(){
+                                        var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10)-1;
+                                        if(newVal>=1) divUpd.text(newVal);
+                                    });
+                                </script>
+                                <!--quantity-->
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="women">
+                            <span class="size">XL / XXL / S </span>
+                            <p ><del>$100.00</del><em class="item_price"> $70.00 </em></p>
+                            <div class="add">
+                                <button class="btn btn-danger my-cart-btn my-cart-b" data-id="3" data-name="Kabuli Chana" data-summary="summary 3" data-price="2.00" data-quantity="1" data-image="{{ asset('/') }}/front-end/images/of2.png">Add to Cart</button>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="clearfix"></div>
             </div>
         </div>
-    </footer>
-    <!-- ##### Footer Area End ##### -->
+    </div>
+</div>
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content modal-info">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="news-gr">
+                    <div class="col-md-5 new-grid1">
+                        <img src="{{ asset('/') }}/front-end/images/p7.jpg" class="img-responsive" alt="">
+                    </div>
+                    <div class="col-md-7 new-grid">
+                        <h5>Ten Women's Cotton Viscose fabric Grey Shrug</h5>
+                        <h6>Quick Overview</h6>
+                        <span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+                        <div class="color-quality">
+                            <div class="color-quality-left">
+                                <h6>Color : </h6>
+                                <ul>
+                                    <li><a href="#"><span></span>Red</a></li>
+                                    <li><a href="#" class="brown"><span></span>Yellow</a></li>
+                                    <li><a href="#" class="purple"><span></span>Purple</a></li>
+                                    <li><a href="#" class="gray"><span></span>Violet</a></li>
+                                </ul>
+                            </div>
+                            <div class="color-quality-right">
+                                <h6>Quality :</h6>
+                                <div class="quantity">
+                                    <div class="quantity-select">
+                                        <div class="entry value-minus1">&nbsp;</div>
+                                        <div class="entry value1"><span>1</span></div>
+                                        <div class="entry value-plus1 active">&nbsp;</div>
+                                    </div>
+                                </div>
+                                <!--quantity-->
+                                <script>
+                                    $('.value-plus1').on('click', function(){
+                                        var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10)+1;
+                                        divUpd.text(newVal);
+                                    });
 
-    <!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
-    <script src="{{asset('/')}}/front-end/js/jquery/jquery-2.2.4.min.js"></script>
-    <!-- Popper js -->
-    <script src="{{asset('/')}}/front-end/js/popper.min.js"></script>
-    <!-- Bootstrap js -->
-    <script src="{{asset('/')}}/front-end/js/bootstrap.min.js"></script>
-    <!-- Plugins js -->
-    <script src="{{asset('/')}}/front-end/js/plugins.js"></script>
-    <!-- Active js -->
-    <script src="{{asset('/')}}/front-end/js/active.js"></script>
+                                    $('.value-minus1').on('click', function(){
+                                        var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10)-1;
+                                        if(newVal>=1) divUpd.text(newVal);
+                                    });
+                                </script>
+                                <!--quantity-->
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="women">
+                            <span class="size">XL / XXL / S </span>
+                            <p ><del>$100.00</del><em class="item_price"> $70.00 </em></p>
+                            <div class="add">
+                                <button class="btn btn-danger my-cart-btn my-cart-b" data-id="3" data-name="Kabuli Chana" data-summary="summary 3" data-price="2.00" data-quantity="1" data-image="{{ asset('/') }}/front-end/images/of2.png">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="myModal3" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content modal-info">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="news-gr">
+                    <div class="col-md-5 new-grid1">
+                        <img src="{{ asset('/') }}/front-end/images/p10.jpg" class="img-responsive" alt="">
+                    </div>
+                    <div class="col-md-7 new-grid">
+                        <h5>Ten Men's Cotton Viscose fabric Grey Shrug</h5>
+                        <h6>Quick Overview</h6>
+                        <span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+                        <div class="color-quality">
+                            <div class="color-quality-left">
+                                <h6>Color : </h6>
+                                <ul>
+                                    <li><a href="#"><span></span>Red</a></li>
+                                    <li><a href="#" class="brown"><span></span>Yellow</a></li>
+                                    <li><a href="#" class="purple"><span></span>Purple</a></li>
+                                    <li><a href="#" class="gray"><span></span>Violet</a></li>
+                                </ul>
+                            </div>
+                            <div class="color-quality-right">
+                                <h6>Quality :</h6>
+                                <div class="quantity">
+                                    <div class="quantity-select">
+                                        <div class="entry value-minus1">&nbsp;</div>
+                                        <div class="entry value1"><span>1</span></div>
+                                        <div class="entry value-plus1 active">&nbsp;</div>
+                                    </div>
+                                </div>
+                                <!--quantity-->
+                                <script>
+                                    $('.value-plus1').on('click', function(){
+                                        var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10)+1;
+                                        divUpd.text(newVal);
+                                    });
+
+                                    $('.value-minus1').on('click', function(){
+                                        var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10)-1;
+                                        if(newVal>=1) divUpd.text(newVal);
+                                    });
+                                </script>
+                                <!--quantity-->
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="women">
+                            <span class="size">XL / XXL / S </span>
+                            <p ><del>$100.00</del><em class="item_price"> $70.00 </em></p>
+                            <div class="add">
+                                <button class="btn btn-danger my-cart-btn my-cart-b" data-id="3" data-name="Kabuli Chana" data-summary="summary 3" data-price="2.00" data-quantity="1" data-image="{{ asset('/') }}/front-end/images/of2.png">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="myModal4" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content modal-info">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <div class="news-gr">
+                    <div class="col-md-5 new-grid1">
+                        <img src="{{ asset('/') }}/front-end/images/p12.jpg" class="img-responsive" alt="">
+                    </div>
+                    <div class="col-md-7 new-grid">
+                        <h5>Ten Men's Cotton Viscose fabric Grey Shrug</h5>
+                        <h6>Quick Overview</h6>
+                        <span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+                        <div class="color-quality">
+                            <div class="color-quality-left">
+                                <h6>Color : </h6>
+                                <ul>
+                                    <li><a href="#"><span></span>Red</a></li>
+                                    <li><a href="#" class="brown"><span></span>Yellow</a></li>
+                                    <li><a href="#" class="purple"><span></span>Purple</a></li>
+                                    <li><a href="#" class="gray"><span></span>Violet</a></li>
+                                </ul>
+                            </div>
+                            <div class="color-quality-right">
+                                <h6>Quality :</h6>
+                                <div class="quantity">
+                                    <div class="quantity-select">
+                                        <div class="entry value-minus1">&nbsp;</div>
+                                        <div class="entry value1"><span>1</span></div>
+                                        <div class="entry value-plus1 active">&nbsp;</div>
+                                    </div>
+                                </div>
+                                <!--quantity-->
+                                <script>
+                                    $('.value-plus1').on('click', function(){
+                                        var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10)+1;
+                                        divUpd.text(newVal);
+                                    });
+
+                                    $('.value-minus1').on('click', function(){
+                                        var divUpd = $(this).parent().find('.value1'), newVal = parseInt(divUpd.text(), 10)-1;
+                                        if(newVal>=1) divUpd.text(newVal);
+                                    });
+                                </script>
+                                <!--quantity-->
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                        <div class="women">
+                            <span class="size">XL / XXL / S </span>
+                            <p ><del>$100.00</del><em class="item_price"> $70.00 </em></p>
+                            <div class="add">
+                                <button class="btn btn-danger my-cart-btn my-cart-b" data-id="3" data-name="Kabuli Chana" data-summary="summary 3" data-price="2.00" data-quantity="1" data-image="{{ asset('/') }}/front-end/images/of2.png">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
-
 </html>

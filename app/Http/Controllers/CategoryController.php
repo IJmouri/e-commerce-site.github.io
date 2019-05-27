@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Category2;
 use Illuminate\Http\Request;
 use DB;
+use Image;
 class CategoryController extends Controller
 {
     public function index()
@@ -11,25 +12,31 @@ class CategoryController extends Controller
     	return view('admin.category.add-category');
     }
 
-    public function saveCategory(Request $request)
+    protected function productInfoValidate($request)
     {
+        $this->validate($request,[
+            'category_name' => 'required'
+        ]);
+    }
 
+    
+    protected function savecategoryinfo($request)
+    {
         $category = new Category2();
-    	
-    	//Category2::create($request->all());
-        $productImage = $request->file('product_image');
-        $imageName = $productImage->getClientOriginalName();
-        $directory = 'product-image/';
-       $ImageUrl = $directory.$imageName;
-        $productImage->move($directory,$imageName);
-        
-     //   $category->id=$request->id;
-        
         $category-> category_name = $request -> category_name;
         $category-> category_description = $request -> category_description;
-        $category-> product_image = $ImageUrl;
+    //    $category-> product_image = $ImageUrl;
         $category-> publication_status = $request -> publication_status;
         $category->save();
+    }
+
+    public function saveCategory(Request $request)
+    {
+         $this->productInfoValidate($request);
+           //  $ImageUrl= $this->productimageUpload($request);
+         $this->savecategoryinfo($request);
+    	//Category2::create($request->all());
+        //   $category->id=$request->id;
         //return $imageName;
     	return redirect('/category/add')->with('message','category info saved');
     }
@@ -53,7 +60,7 @@ class CategoryController extends Controller
     	$category = Category2::find($id);
     	$category->publication_status = 1;
     	$category->save();
-    	return redirect('/category/manage')->with('message','Category info unpublished');
+    	return redirect('/category/manage')->with('message','Category info published');
     }
     public function editCategory($id)
     {

@@ -22,12 +22,7 @@
                             <textarea class="form-control"  id="editor" name="category_description"></textarea>
                         </div>
                     </div>
-                     <div class="form-group">
-                        <label class="control-label col-md-3">product_image</label>
-                        <div class="col-md-9">
-                            <input type="file" name="product_image" accept="image/*"/>
-                        </div>
-                    </div>
+                    
                     <div class="form-group">
                         <label class="control-label col-md-3">Publication status</label>
                         <div class="col-md-9 radio">
