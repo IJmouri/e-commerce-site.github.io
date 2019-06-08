@@ -14,6 +14,7 @@
                         <div class="core-slider_item">
                             <img src="{{ asset('/') }}/front-end/images/b1.jpg" class="img-responsive" alt="">
                         </div>
+                        
                         <div class="core-slider_item">
                             <img src="{{ asset('/') }}/front-end/images/b2.jpg" class="img-responsive" alt="">
                         </div>
@@ -102,7 +103,7 @@
                         <div class="grid-arr">
                             <div  class="grid-arrival">
                                 <figure>
-                                    <a href="#" class="new-gri" data-toggle="modal" data-target="#myModal1">
+                                    <a href="{{route('product-details',['id'=>$newproduct->id])}}" class="new-gri">
                                         <div class="grid-img">
                                             <img  src="{{ asset($newproduct->product_Image) }}" class="img-responsive" alt="">
                                         </div>

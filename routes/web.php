@@ -8,7 +8,7 @@ Route::get('/', [
 ]);
 
 
-Route::get('/category-product', [
+Route::get('/category-product/{id}', [
     'uses'  =>  'NewController@categoryproduct',
     'as'    =>  'category-product'
 ]);
@@ -120,6 +120,10 @@ Route::get('/product/edit/{id}', [
 	'as'   => 'edit-product'
 ]);
 
+Route::get('/product-details/{id}',[
+	'uses' => 'NewController@productDetails',
+	'as'   => 'product-details'
+]);
 
 Auth::routes();
 

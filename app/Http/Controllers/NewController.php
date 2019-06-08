@@ -19,10 +19,18 @@ class NewController extends Controller
             'newproducts'=>$newproducts
             ]);
     }
-    public function categoryproduct(){
-        $categories = category2::where('publication_status',1)->get();
+    public function categoryproduct($id){
+        
+        $categoryProducts = products::where('category_id',$id)
+                                 ->   where('publication_status',1)->get();
     	return view('front-end.category.category-content',[
-            'categories'=>$categories
+            'categoryProducts'=>$categoryProducts
         ]);
     }
+    public function productDetails($id){
+        $productDetails = products::find($id);
+        return view('front-end.product.product-details',[
+            'productDetails' => $productDetails
+        ]);
+    } 
 }
