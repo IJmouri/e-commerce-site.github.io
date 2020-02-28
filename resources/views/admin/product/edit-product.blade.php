@@ -14,28 +14,26 @@
                         <label class="control-label col-md-3">Category Name</label>
                         <div class="col-md-9">
                             <select class="form-control" name="category_id">
-                              <option>----------------------------------Select Category-------------------------</option>
-                              @foreach($categories as $category)
-                              <option value=" {{$category->id}}">{{  $category->category_name }}</option>
-                              @endforeach
+                                <option>--- Select Category Name---</option>
+                                @foreach($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                                @endforeach
                             </select>
-                             <span class="text-danger">{{ $errors-> has('category_id') ? $errors->first('category_id') : ' ' }} </span>
+                            <span class="text-danger">{{ $errors->has('brand_name') ? $errors->first('brand_name') : ' ' }}</span>
                         </div>
                     </div>
-
                     <div class="form-group">
                         <label class="control-label col-md-3">Brand Name</label>
                         <div class="col-md-9">
                             <select class="form-control" name="brand_id">
-                              <option>----------------------------------Select Brand-----------------------------</option>
-                              @foreach($brands as $brand)
-                              <option value=" {{ $brand->id }}">{{ $brand->brand_name }}</option>
-                              @endforeach
+                                <option>--- Select Brand Name---</option>
+                                @foreach($brands as $brand)
+                                    <option value="{{ $brand->id }}">{{ $brand->brand_name }}</option>
+                                @endforeach
                             </select>
-                             <span class="text-danger">{{ $errors-> has('brand_id') ? $errors->first('brand_id') : ' ' }} </span>
+                            <span class="text-danger">{{ $errors->has('brand_name') ? $errors->first('brand_name') : ' ' }}</span>
                         </div>
                     </div>
-                   
 
                     <div class="form-group">
                         <label class="control-label col-md-3">Product Name</label>
@@ -64,24 +62,24 @@
                     <div class="form-group">
                         <label class="control-label col-md-3">Short Description</label>
                         <div class="col-md-9">
-                            <textarea name="short_description" value = "{{ $product -> short_description}}" class="form-control"></textarea>
-                            
+                            <textarea class="form-control" name="short_description">{{ $product->short_description }}</textarea>
+                            <span class="text-danger">{{ $errors->has('brand_description') ? $errors->first('brand_description') : ' ' }}</span>
                         </div>
                     </div>
-
-                      <div class="form-group">
+                    <div class="form-group">
                         <label class="control-label col-md-3">Long Description</label>
                         <div class="col-md-9">
-                            <textarea name="long_description" value = "{{ $product -> long_description}}" class="form-control"></textarea>
-                            
+                            <textarea class="form-control" id="editor" name="long_description">{{ $product->long_description }}</textarea>
+                            <span class="text-danger">{{ $errors->has('brand_description') ? $errors->first('brand_description') : ' ' }}</span>
                         </div>
                     </div>
-
-                     <div class="form-group">
+                    <div class="form-group">
                         <label class="control-label col-md-3">Product Image</label>
                         <div class="col-md-9">
                             <input type="file" name="product_image" accept="image/*"/>
-                           
+                            <br/>
+                            <img src="{{ asset($product->product_Image) }}" alt="" height="80" width="80"/>
+                            <span class="text-danger">{{ $errors->has('brand_description') ? $errors->first('brand_description') : ' ' }}</span>
                         </div>
                     </div>
                     
@@ -104,4 +102,8 @@
         </div>
     </div>
 </div>
+<script>
+        document.forms['editProductForm'].elements['category_id'].value = '{{ $product->category_id }}';
+        document.forms['editProductForm'].elements['brand_id'].value = '{{ $product->brand_id }}';
+    </script>
 @endsection

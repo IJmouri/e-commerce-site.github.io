@@ -7,7 +7,14 @@
             <div class="top-right">
                 <ul>
                     <li><a href="checkout.html">Checkout</a></li>
-                    <li><a href="login.html">Login</a></li>
+                    @if(Session::get('customerId'))
+                    <li><a href="#" onclick="document.getElementById('cutomerLogoutForm').submit();">Logout</a></li>
+                    <form id="cutomerLogoutForm"action="{{route('customer-logout')}}" method="post" >
+                        @csrf
+                    </form>
+                    @else
+                    <li><a href="{{route('direct-customer-login')}}">Login</a></li>
+                    @endif
                     <li><a href="registered.html"> Create Account </a></li>
                 </ul>
             </div>

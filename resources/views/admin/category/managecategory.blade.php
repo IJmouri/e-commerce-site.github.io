@@ -22,7 +22,7 @@
                      <tr>
                         <td>{{$i++}}</td>
                         <td>{{$category->category_name}}</td>
-                        <td>{{$category->category_description}}</td>
+                        <td>{!! $category->category_description !!}</td>
                         <td>{{$category->publication_status == 1 ? 'published' : 'unpublished'}}</td>
                         <td>
                             @if($category->publication_status == 1)

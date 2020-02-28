@@ -70,6 +70,7 @@ class CategoryController extends Controller
 
     public function updateCategory(Request $request)
     {
+       // return $request->all();
     	$category = Category2::find($request->category_id);
     	$category-> category_name = $request -> category_name;
     	$category-> category_description = $request -> category_description;

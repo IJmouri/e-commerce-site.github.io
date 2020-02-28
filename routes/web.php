@@ -120,9 +120,83 @@ Route::get('/product/edit/{id}', [
 	'as'   => 'edit-product'
 ]);
 
-Route::get('/product-details/{id}',[
+Route::get('/product-details/{id}/{name}',[
 	'uses' => 'NewController@productDetails',
 	'as'   => 'product-details'
+]);
+
+Route::post('/cart/add',[
+	'uses' => 'CartController@AddToCart',
+	'as'   => 'add-to-cart'
+]);
+Route::get('/cart/show',[
+	'uses' => 'CartController@showcart',
+	'as'   => 'show-cart'
+]);
+
+Route::get('/cart/delete/{id}',[
+	'uses' =>'CartController@deleteCart',
+	'as'   => 'delete-cart-item'
+]);
+
+Route::get('/checkout',[
+	'uses' => 'CheckoutController@index',
+	'as' => 'checkout'
+]);
+
+Route::post('/customer/registration', [
+    'uses'  =>  'CheckoutController@customerSignUp',
+    'as'    =>  'customer-sign-up'
+]);
+
+Route::get('/checkout/shipping', [
+    'uses'  =>  'CheckoutController@ShippingForm',
+    'as'    =>  'checkout-shipping'
+]);
+Route::post('/shipping/save', [
+    'uses'  =>  'CheckoutController@SaveShippingInfo',
+    'as'    =>  'new-shipping'
+]);
+
+Route::get('/checkout/payment', [
+    'uses'  =>  'CheckoutController@PaymentForm',
+    'as'    =>  'checkout-payment'
+]);
+Route::post('/order/save', [
+    'uses'  =>  'CheckoutController@OrderSave',
+    'as'    =>  'new-order'
+]);
+
+Route::post('/checkout/login', [
+    'uses'  =>  'CheckoutController@CustomerLogin',
+    'as'    =>  'customer-login'
+]);
+Route::get('/customer/login/', [
+    'uses'  =>  'CheckoutController@DirectCustomerLogin',
+    'as'    =>  'direct-customer-login'
+]);
+Route::post('/customer/logout', [
+    'uses'  =>  'CheckoutController@CustomerLogout',
+    'as'    =>  'customer-logout'
+]);
+
+Route::get('/manage/order', [
+    'uses'  =>  'OrderController@ManageOrder',
+    'as'    =>  'manage-order'
+]);
+
+Route::get('/manage/view-order-detail/{id}', [
+    'uses'  =>  'OrderController@ViewOrderDetail',
+    'as'    =>  'view-order-detail'
+]);
+Route::get('/manage/view-order-invoice/{id}', [
+    'uses'  =>  'OrderController@ViewOrderInvoice',
+    'as'    =>  'view-order-invoice'
+]);
+
+Route::get('/manage/download-order-invoice/{id}', [
+    'uses'  =>  'OrderController@DownloadOrderInvoice',
+    'as'    =>  'download-order-invoice'
 ]);
 
 Auth::routes();
